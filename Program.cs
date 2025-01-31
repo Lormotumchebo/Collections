@@ -1,4 +1,5 @@
 ﻿using static Collections.ArraySumAverages;
+using static Collections.GradeBooks;
 using static Collections.Lists;
 
 
@@ -42,6 +43,48 @@ using static Collections.Lists;
         int sum2 = ListOperations.SumGreaterThan10Linq(numbers);
         Console.WriteLine("\nMethod 2 (LINQ):");
         Console.WriteLine($"Sum of numbers greater than 10: {sum2}");
+
+        Console.ReadKey();
+    }
+
+
+    {
+        GradeBook gradeBook = new GradeBook(); // Create an instance of the GradeBook
+
+        // Add some student names and grades
+        gradeBook.AddStudentGrade("James Harden", "A");
+        gradeBook.AddStudentGrade("Lebron James", "B");
+        gradeBook.AddStudentGrade("Kawhi Leonard", "C");
+        gradeBook.AddStudentGrade("Shaquille O'neal", "A+");
+
+        // Retrieve and display the grade (Method 1: Direct access)
+        string studentName = "Lebron James";
+        string grade = gradeBook.GetGrade(studentName);
+
+        if (grade != null)
+        {
+            Console.WriteLine($"{studentName}'s grade is: {grade}");
+        }
+        else
+        {
+            Console.WriteLine($"{studentName} not found in the records.");
+        }
+
+        // Retrieve and display the grade (Method 2: Using TryGetValue)
+        string anotherStudent = "Eve";
+        string theGrade = gradeBook.GetGradeSafe(anotherStudent); // Using the safe method
+
+        if (theGrade != null)
+        {
+            Console.WriteLine($"{anotherStudent}'s grade is: {theGrade}");
+        }
+        else
+        {
+            Console.WriteLine($"{anotherStudent} not found in the records.");
+        }
+
+        // Display all students and grades
+        gradeBook.DisplayAllGrades();
 
         Console.ReadKey();
     }
