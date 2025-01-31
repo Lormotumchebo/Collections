@@ -1,4 +1,5 @@
 ﻿using static Collections.ArraySumAverages;
+using static Collections.Frequencies;
 using static Collections.GradeBooks;
 using static Collections.Lists;
 
@@ -85,6 +86,31 @@ using static Collections.Lists;
 
         // Display all students and grades
         gradeBook.DisplayAllGrades();
+
+        Console.ReadKey();
+    }
+
+
+    {
+        List<int> numbers = new List<int>() { 1, 2, 2, 3, 1, 4, 2, 5, 1, 3, 3 };
+
+        // Method 1 (Loop)
+        Dictionary<int, int> freqMap1 = FrequencyCounter.CountFrequencies(numbers);
+        Console.WriteLine("Method 1 (Loop):");
+        FrequencyCounter.PrintFrequencyMap(freqMap1);
+
+        // Method 2 (LINQ)
+        Dictionary<int, int> freqMap2 = FrequencyCounter.CountFrequenciesLinq(numbers);
+        Console.WriteLine("\nMethod 2 (LINQ):");
+        FrequencyCounter.PrintFrequencyMap(freqMap2);
+
+        // Method 3 (User Input)
+        Console.WriteLine("\nEnter integers separated by spaces (e.g., 1 2 2 3):");
+        string input = Console.ReadLine();
+        Dictionary<int, int> userFreqMap = FrequencyCounter.CountFrequenciesFromInput(input);
+        Console.WriteLine("\nUser Input Frequency:");
+        FrequencyCounter.PrintFrequencyMap(userFreqMap);
+
 
         Console.ReadKey();
     }
