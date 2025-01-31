@@ -1,7 +1,9 @@
 ﻿using static Collections.ArraySumAverages;
+using static Collections.Colors;
 using static Collections.Frequencies;
 using static Collections.GradeBooks;
 using static Collections.Lists;
+using static Collections.Products;
 
 
     {
@@ -111,6 +113,38 @@ using static Collections.Lists;
         Console.WriteLine("\nUser Input Frequency:");
         FrequencyCounter.PrintFrequencyMap(userFreqMap);
 
+
+        Console.ReadKey();
+    }
+
+    {
+        // 1. Create and initialize the List<string> of colors (example)
+        List<string> colors = new List<string>() { "Red", "Green", "Blue", "Yellow", "Purple" };
+
+        // 2. Print the colors using the method
+        ColorPrinter.PrintColors(colors);
+
+        // 3. Get colors from user and print them:
+        List<string> userColors = ColorPrinter.GetColorsFromUser();
+        Console.WriteLine("\nColors you entered:");
+        ColorPrinter.PrintColors(userColors);
+
+
+        Console.ReadKey();
+    }
+
+
+    {
+        ProductCatalog catalog = new ProductCatalog(); // Create an instance of the ProductCatalog
+
+        // Add some products to the catalog
+        catalog.AddProduct("BMW", 125000.50);
+        catalog.AddProduct("BRABUS MERCEDES", 300000.30);
+        catalog.AddProduct("MANSORY", 400000.50);
+        catalog.AddProduct("NISSAN PATROL LIMITED EDITION", 200000.00);
+
+        // Print the product prices
+        catalog.PrintProductPrices();
 
         Console.ReadKey();
     }
